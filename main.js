@@ -6,6 +6,23 @@ const addBook = document.querySelector('#add');
 let booksStore = [];
 
 
+// getting existing data from localStorage
+let existingData = JSON.parse(localStorage.getItem('data'));
+if(existingData == null) existingData = booksStore;
+
+// adding existingData to booksStore
+booksStore = booksStore.concat(existingData);
+
+booksStore.forEach(item => {
+  bookList.innerHTML+= `
+<div class="book">
+      <p>${item.title}</p>
+      <p>${item.author}</p>
+      <button type="button" id="remove">Remove</button>
+      <hr>
+    </div>
+`;})
+
 function handleSubmit(e) {
   e.preventDefault()
   let title = bookTitle.value;
@@ -14,20 +31,16 @@ function handleSubmit(e) {
     title: title,
     author: author
   }
-   
   booksStore.push(bookDescription);
-  const newData = JSON.stringify(booksStore);
-  const oldData = localStorage.setItem('data2', newData);
-
-  console.log(newData);
+  localStorage.setItem('data', JSON.stringify(booksStore));
+  let lastBook = booksStore[booksStore.length -1]
+  bookList.innerHTML+= `
+  <div class="book">
+        <p>${lastBook.title}</p>
+        <p>${lastBook.author}</p>
+        <button type="button" id="remove">Remove</button>
+        <hr>
+      </div>
+  `;
 }
 form.addEventListener('submit', handleSubmit);
-
-const book = `
-<div class="book">
-       <p>Lorem ipsum</p>
-       <p>Testeroo Testyy</p>
-       <button type="button" id="remove">Remove</button>
-       <hr>
-     </div>
-`;
