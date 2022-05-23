@@ -14,7 +14,20 @@ function handleSubmit(e) {
     title: title,
     author: author
   }
-
+   
   booksStore.push(bookDescription);
+  const newData = JSON.stringify(booksStore);
+  const oldData = localStorage.setItem('data2', newData);
+
+  console.log(newData);
 }
-form.addEventListener('submit', handleSubmit)
+form.addEventListener('submit', handleSubmit);
+
+const book = `
+<div class="book">
+       <p>Lorem ipsum</p>
+       <p>Testeroo Testyy</p>
+       <button type="button" id="remove">Remove</button>
+       <hr>
+     </div>
+`;
