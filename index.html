@@ -6,22 +6,24 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>awesome books</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
   <main>
     <h1 class="head">Awesome books</h1>
     
-    <div class="book-list"></div>
-    <form action="#" id="form">
-      <input type="text" placeholder="Title" id="title">
-      <br>
-      <br>
-      <input type="text" placeholder="Author" id="author">
-      <br>
-      <br>
-      <button type="submit" id="add">Add</button>
-    </form>
+    <div class="content">
+      <ul class="book-list"></ul>
+    </div>
+    <div class="form-data">
+      <h2>Add a New Book</h2>
+      <form action="#" id="form">
+        <input type="text" placeholder="Title" id="title">
+        <input type="text" placeholder="Author" id="author">
+        <button type="submit" id="add">Add</button>
+      </form>
+    </div>
   </main>
 
 
