@@ -1,8 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap');
+
 body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Grape Nuts', cursive;
+    font-weight: bold;
+    font-size: 18px;
 }
 main{
     width: 80%;
@@ -64,7 +68,9 @@ main{
     padding: 10px 15px;
     width: 100%;
     border: 2px solid #000;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: 'Grape Nuts', cursive;
 }
 
 #form input:focus {
