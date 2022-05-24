@@ -1,0 +1,45 @@
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+main{
+    width: 80%;
+    margin: 10px auto;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.content{
+    width: 80%;
+    margin: 20px auto;
+    text-align: center;
+   
+}
+.book-list{
+   border: 2px solid black;
+   width: 100%;
+   justify-content: left;
+}
+.book-list li{
+    background-color: gainsboro;
+    display: flex;
+    justify-content:space-between;
+    margin-top: 0px;
+    padding: 10px 10px;
+    margin-left: -40px;
+}
+.book-list li p{
+    margin: 10px 20px;
+}
+.book-list li button{
+    padding: 7px 20px;
+    border: none;
+    outline: none;
+    background-color: rgb(253, 251, 251);
+    font-weight: bold;
+}
+.book-list li button:hover{
+    background-color: darkgray;
+    color: black;
+}
