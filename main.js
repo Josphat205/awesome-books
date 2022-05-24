@@ -21,7 +21,7 @@ class BookCollection {
     booksStore.forEach((item) => {
       bookList.innerHTML += `
      <li class="book" id ="${item.title}">
-     <p>${item.title} <span>By</span> <span> ${item.author}</span></p>
+     <p>"${item.title}" <span>By</span> <span> ${item.author}</span></p>
      <button type="button" class="remove">Remove</button>
     </li>
  `;
@@ -50,7 +50,7 @@ class BookCollection {
         const lastBook = booksStore[booksStore.length - 1];
         bookList.innerHTML += `
       <li class="book" id ="${lastBook.title}">
-            <p>${lastBook.title} <span> By</span> <span> ${lastBook.author}</span></p>
+            <p>"${lastBook.title}" <span> By</span> <span> ${lastBook.author}</span></p>
             <button type="button" class="remove">Remove</button>
        </li>
       `;
