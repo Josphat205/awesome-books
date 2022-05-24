@@ -12,31 +12,16 @@ if (existingData == null) existingData = booksStore;
 // adding existingData to booksStore
 booksStore = booksStore.concat(existingData);
 
+// displaying data in the ui
 booksStore.forEach((item) => {
   bookList.innerHTML += `
 <div class="book" id ="${item.title}">
       <p>${item.title}</p>
       <p>${item.author}</p>
-      <button type="button" id="remove1">Remove</button>
+      <button type="button" class="remove">Remove</button>
       <hr>
     </div>
 `;
-});
-
-const removeBook = document.querySelectorAll("#remove1");
-removeBook.forEach((btn) => {
-  btn.addEventListener("click", (e) => {
-    e.path[1].remove();
-    const id = e.path[1].id;
-    // console.log(id);
-    for (let a = 0; a < existingData.length; a++) {
-      if (existingData[a].title === id) {
-        existingData.splice(a, 1);
-        localStorage.removeItem('data');
-        // console.log(existingData);
-      }
-    }
-  });
 });
 
 function handleSubmit(e) {
@@ -47,17 +32,39 @@ function handleSubmit(e) {
     title: title,
     author: author,
   };
-  booksStore.push(bookDescription);
-  const setData = localStorage.setItem("data", JSON.stringify(booksStore));
-  let lastBook = booksStore[booksStore.length - 1];
-  bookList.innerHTML += `
-  <div class="book" id ="${lastBook.title}">
-        <p >${lastBook.title}</p>
-        <p>${lastBook.author}</p>
-        <button type="button" id="remove">Remove</button>
-        <hr>
-      </div>
-  `;
 
+  // setting the inputValue to empty
+  bookTitle.value = '';
+  bookAuthor.value = '';
+
+  // add new book
+  if(title && author !== ''){
+    booksStore.push(bookDescription);
+    localStorage.setItem("data", JSON.stringify(booksStore));
+    let lastBook = booksStore[booksStore.length - 1];
+    bookList.innerHTML += `
+    <div class="book" id ="${lastBook.title}">
+          <p>${lastBook.title}</p>
+          <p>${lastBook.author}</p>
+          <button type="button" class="remove">Remove</button>
+          <hr>
+        </div>
+    `;
+  }
 }
 form.addEventListener("submit", handleSubmit);
+
+// remove book handler
+
+document.querySelector('.book-list').addEventListener('click', (e) => {
+    if (e.target.classList.contains('remove')) {
+      e.target.parentElement.remove();
+      const id = e.path[1].id;
+      for (let a = 0; a < booksStore.length; a++) {
+        if (booksStore[a].title === id) {
+          booksStore.splice(a, 1);
+          localStorage.setItem("data", JSON.stringify(booksStore));
+        }
+      }
+    }
+});
