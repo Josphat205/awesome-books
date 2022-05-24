@@ -38,8 +38,10 @@ class BookCollection {
         author: author.value,
       };
       // setting the inputValue to empty
-      bookTitle = "";
-      bookAuthor = "";
+
+      // console.log(bookTitle.value, bookAuthor.value)
+      title.value = "";
+      author.value = "";
 
       // add new book
       if (title && author !== "") {
