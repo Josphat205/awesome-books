@@ -4,16 +4,17 @@ const bookAuthor = document.querySelector('#author');
 const form = document.querySelector('#form');
 let booksStore = [];
 
+const existingBook = () => {
 // getting existing data from localStorage
-let existingData = JSON.parse(localStorage.getItem('data'));
-if (existingData == null) existingData = booksStore;
+  let existingData = JSON.parse(localStorage.getItem('data'));
+  if (existingData == null) existingData = booksStore;
 
-// adding existingData to booksStore
-booksStore = booksStore.concat(existingData);
+  // adding existingData to booksStore
+  booksStore = booksStore.concat(existingData);
 
-// displaying data in the ui
-booksStore.forEach((item) => {
-  bookList.innerHTML += `
+  // displaying data in the ui
+  booksStore.forEach((item) => {
+    bookList.innerHTML += `
 <div class="book" id ="${item.title}">
       <p>${item.title}</p>
       <p>${item.author}</p>
@@ -21,8 +22,9 @@ booksStore.forEach((item) => {
       <hr>
     </div>
 `;
-});
-
+  });
+};
+existingBook();
 function handleSubmit(e) {
   e.preventDefault();
   const title = bookTitle.value;
@@ -55,15 +57,19 @@ form.addEventListener('submit', handleSubmit);
 
 // remove book handler
 
-document.querySelector('.book-list').addEventListener('click', (e) => {
-  if (e.target.classList.contains('remove')) {
-    e.target.parentElement.remove();
-    const { id } = e.path[1];
-    for (let a = 0; a < booksStore.length; a += 1) {
-      if (booksStore[a].title === id) {
-        booksStore.splice(a, 1);
-        localStorage.setItem('data', JSON.stringify(booksStore));
+const removeBook = () => {
+  document.querySelector('.book-list').addEventListener('click', (e) => {
+    if (e.target.classList.contains('remove')) {
+      e.target.parentElement.remove();
+      const { id } = e.path[1];
+      for (let a = 0; a < booksStore.length; a += 1) {
+        if (booksStore[a].title === id) {
+          booksStore.splice(a, 1);
+          localStorage.setItem('data', JSON.stringify(booksStore));
+        }
       }
     }
-  }
-});
+  });
+};
+
+removeBook();
