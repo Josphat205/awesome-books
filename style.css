@@ -167,7 +167,7 @@ nav .is-Active {
 }
 
 section .home-page {
-  height: 56%;
+  min-height: 100vh;
   background-color: aqua;
   justify-content: center;
   align-items: center;
@@ -177,9 +177,8 @@ section .home-page {
 #contact-info ul {
   text-align: left;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 22px;
+  margin-left: 31%;
 }
 
-#contact-info h2 {
-  text-align: center;
-}
+
