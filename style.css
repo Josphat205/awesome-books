@@ -32,6 +32,7 @@ footer {
 
 footer {
   margin-top: 40px;
+  font-weight: bold;
 }
 
 main {
@@ -108,7 +109,9 @@ h2 {
   list-style: none;
   display: flex;
   align-items: center;
-  padding: 0 15px;
+  justify-content: center;
+  /* padding: 0 15px; */
+  width: 100px;
   height: 80%;
   border-right: 2px solid #000;
 }
@@ -117,7 +120,7 @@ h2 {
   border: none;
 }
 
-#nav-list a {
+nav a {
   color: #000;
   text-decoration: none;
 }
@@ -155,7 +158,9 @@ h2 {
 }
 
 nav .is-Active {
-  background-color: gray;
+  padding: 3px;
+  color: blue;
+  font-weight: bold;
 }
 
 section .home-page {
@@ -163,4 +168,15 @@ section .home-page {
   background-color: aqua;
   justify-content: center;
   align-items: center;
+}
+
+#contact-info p,
+#contact-info ul {
+  text-align: left;
+  font-weight: bold;
+  font-size: 25px;
+}
+
+#contact-info h2 {
+  text-align: center;
 }
