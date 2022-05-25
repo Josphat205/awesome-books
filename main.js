@@ -2,6 +2,7 @@ const bookList = document.querySelector('.book-list');
 const bookTitle = document.querySelector('#title');
 const bookAuthor = document.querySelector('#author');
 const form = document.querySelector('#form');
+const date = document.querySelector('#date');
 const booksStore = [];
 
 class BookCollection {
@@ -80,3 +81,18 @@ const Book1 = new BookCollection(bookTitle, bookAuthor, booksStore);
 Book1.saveData();
 Book1.removeData();
 Book1.existingData();
+
+
+// display current date
+function currentDate () {
+  console.log(new Date())
+  console.log(new Date().toJSON())
+  // let today = new Date().toJSON().slice(0,10);
+  let today = new Date();
+  console.log(today.getTime())
+
+  // console.log(today.split(''));
+  return today;
+}
+
+date.textContent = currentDate();

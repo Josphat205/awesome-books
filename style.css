@@ -1,12 +1,58 @@
 @import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap');
 
+* {
+  box-sizing: border-box;
+}
 body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: 'Grape Nuts', cursive;
   font-weight: bold;
   font-size: 18px;
+}
+
+#navbar,
+footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border: 2px solid #000;
+  padding: 0 5px;
+  height: 40px;
+  align-items: center;
+}
+
+#date {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+footer {
+  margin-top: 40px;
+}
+
+#nav-list {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+#nav-list li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  height: 80%;
+  border-right: 2px solid #000;
+}
+
+#nav-list li:last-child {
+  border: none;
+}
+
+#nav-list a {
+  color: #000;
+  text-decoration: none;
 }
 
 main {
@@ -18,7 +64,7 @@ main {
 }
 
 .content {
-  width: 80%;
+  width: 100%;
   margin: 20px auto;
   text-align: center;
 }
@@ -34,6 +80,7 @@ main {
   background-color: gainsboro;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 0;
   padding: 3px 10px;
   margin-left: -40px;
@@ -56,6 +103,7 @@ main {
   background-color: rgb(253, 251, 251);
   font-weight: bold;
   box-shadow: -4px 4px #000;
+  height: 40px;
 }
 
 .book-list li button:hover {
