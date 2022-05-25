@@ -17,7 +17,7 @@ class BookCollection {
     if (existingData == null) existingData = this.booksStore;
 
     // adding existingData to booksStore
-    this.booksStore = booksStore.concat(existingData);
+    this.booksStore = this.booksStore.concat(existingData);
 
     // displaying data in the ui
     this.booksStore.forEach((item) => {
@@ -44,9 +44,9 @@ class BookCollection {
       // console.log(this.title.value , this.author.value);
       // add new book
       if (title.value.length && author.value.length > 0) {
-        booksStore.push(bookDescription);
-        localStorage.setItem('data', JSON.stringify(booksStore));
-        const lastBook = booksStore[booksStore.length - 1];
+        this.booksStore.push(bookDescription);
+        localStorage.setItem('data', JSON.stringify(this.booksStore));
+        const lastBook = this.booksStore[this.booksStore.length - 1];
         bookList.innerHTML += `
       <li class="book" id ="${lastBook.title}">
             <p>"${lastBook.title}" <span>By </span> <span> ${lastBook.author}</span></p>
