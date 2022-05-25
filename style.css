@@ -1,24 +1,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
   font-family: 'Grape Nuts', cursive;
-  font-weight: bold;
+
+  /* font-family: 'Oswald', sans-serif; */
+  font-weight: 300;
   font-size: 18px;
+}
+
+#navbar,
+footer {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  border: 2px solid #000;
+  padding: 0 5px;
+  height: 40px;
+  align-items: center;
+}
+
+#date {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+footer {
+  margin-top: 40px;
+  font-weight: bold;
 }
 
 main {
   width: 80%;
-  margin: 10px auto;
+  margin: 10px auto 0 auto;
   justify-content: center;
   align-items: center;
   text-align: center;
+  height: 100vh;
+}
+
+h1,
+h2 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 400;
 }
 
 .content {
-  width: 80%;
+  width: 100%;
   margin: 20px auto;
   text-align: center;
 }
@@ -27,6 +60,7 @@ main {
   border: 2px solid black;
   width: 100%;
   justify-content: left;
+  display: block;
 }
 
 .book-list li {
@@ -34,6 +68,7 @@ main {
   background-color: gainsboro;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-top: 0;
   padding: 3px 10px;
   margin-left: -40px;
@@ -56,11 +91,41 @@ main {
   background-color: rgb(253, 251, 251);
   font-weight: bold;
   box-shadow: -4px 4px #000;
+  height: 40px;
+}
+
+#add:hover {
+  cursor: pointer;
 }
 
 .book-list li button:hover {
   background-color: darkgray;
   color: black;
+}
+
+#nav-list {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+#nav-list li {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;
+  height: 80%;
+  border-right: 2px solid #000;
+}
+
+#nav-list li:last-child {
+  border: none;
+}
+
+nav a {
+  color: #000;
+  text-decoration: none;
 }
 
 #form {
@@ -85,4 +150,33 @@ main {
   outline: none !important;
   border-color: #719ece;
   box-shadow: 0 0 3px #719ece;
+}
+
+.page {
+  display: none;
+}
+
+.is-Active {
+  display: block;
+}
+
+nav .is-Active {
+  padding: 3px;
+  color: blue;
+  font-weight: bold;
+}
+
+section .home-page {
+  min-height: 100vh;
+  background-color: aqua;
+  justify-content: center;
+  align-items: center;
+}
+
+#contact-info p,
+#contact-info ul {
+  text-align: left;
+  font-weight: bold;
+  font-size: 22px;
+  margin-left: 31%;
 }

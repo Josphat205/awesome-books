@@ -2,6 +2,7 @@ const bookList = document.querySelector('.book-list');
 const bookTitle = document.querySelector('#title');
 const bookAuthor = document.querySelector('#author');
 const form = document.querySelector('#form');
+const date = document.querySelector('#date');
 const booksStore = [];
 
 class BookCollection {
@@ -80,3 +81,27 @@ const Book1 = new BookCollection(bookTitle, bookAuthor, booksStore);
 Book1.saveData();
 Book1.removeData();
 Book1.existingData();
+
+// display current date
+function currentDate() {
+  const today = new Date();
+
+  return today;
+}
+
+date.textContent = currentDate();
+
+window.onload = () => {
+  const switcher = document.querySelectorAll('[data-switcher]');
+  for (let i = 0; i < switcher.length; i += 1) {
+    const dataSwitch = switcher[i];
+    const pageId = dataSwitch.dataset.tab;
+    dataSwitch.addEventListener('click', () => {
+      document.querySelector('.is-Active').classList.remove('is-Active');
+      dataSwitch.classList.add('is-Active');
+      document.querySelectorAll('.page').forEach((page) => { page.classList.remove('is-Active'); });
+      const nextPage = document.querySelector(`.home-page .page[data-page = "${pageId}"]`);
+      nextPage.classList.add('is-Active');
+    });
+  }
+};
